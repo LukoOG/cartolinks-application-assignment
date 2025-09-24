@@ -4,11 +4,11 @@ import Header from "@/components/header"
 export default function Home() {
   return (
     <div className="font-sans min-h-screen flex flex-col">
-		<div className="w-full min-h-fit flex-grow py-2 px-8 mt-2">
-			<header className="mb-12">
+		<div className="w-full flex flex-col min-h-fit flex-grow py-2 px-8 mt-2">
+			<header className="max-h-fit mb-12">
 				<Header />
 			</header>
-			<main>
+			<main className="flex-grow">
 				<Main />
 			</main>
 		</div>
