@@ -36,7 +36,7 @@ export default function Header() {
 	const [selectedIndex, setIndex] = useState<number>(0)
 
   return (
-		<section className="min-h-10 max-h-fit items-center grid 6 gap-x-3 grid-cols-[auto_1fr_auto]">
+		<section className="min-h-8 max-h-fit items-center grid 6 gap-x-3 grid-cols-[auto_1fr_auto]">
 		
 			<div className="flex flex-row w-1/3 justify-between gap-x-4">
 				<Avatar>
@@ -78,7 +78,7 @@ export default function Header() {
 						<div className="bg-muted rounded-md p-2">
 							<div className="flex flex-row items-center my-auto h-full justify-between gap-1">
 								<Icon size={14} color="black" />
-								<p>{text}</p>
+								{ text ? <p>{text}</p> : null}
 							</div>
 						</div>
 					</div>
