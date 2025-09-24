@@ -15,15 +15,54 @@ import { House, Video, WandSparkles, Folder, Image as LucideImage, Brush, PenToo
 
 export default function Main() {
 	const generateComponentItems = [
-	{
-		Icon: Video,
-		title: "Video Lipsync",
-		text: "Lip sync any video to any audio"
-	},{
-		Icon: Headset,
-		title: "Video",
-		text: "Generate any video with our AI models"
-	},
+		{
+			Icon: LucideImage,
+			color: "bg-yellow-500",
+			title: "Image",
+			text: "Generate images with custom styles in flux and ideogram"
+		},
+		{
+			Icon: Video,
+			color: "bg-gradient-to-br from-gray-700 to-gray-100",
+			title: "Video Lipsync",
+			text: "Lip sync any video to any audio"
+		},
+		{
+			Icon: Video,
+			color: "bg-gradient-to-br from-gray-700 to-gray-100",
+			title: "Video Lipsync",
+			text: "Lip sync any video to any audio"
+		},
+		{
+			Icon: Video,
+			color: "bg-gradient-to-br from-gray-700 to-gray-100",
+			title: "Video Lipsync",
+			text: "Lip sync any video to any audio"
+		},
+		{
+			Icon: Video,
+			color: "bg-gradient-to-br from-gray-700 to-gray-100",
+			title: "Video Lipsync",
+			text: "Lip sync any video to any audio"
+		},
+		{
+			Icon: Video,
+			color: "bg-gradient-to-br from-gray-700 to-gray-100",
+			title: "Video Lipsync",
+			text: "Lip sync any video to any audio"
+		},
+		{
+			Icon: Video,
+			color: "bg-gradient-to-br from-gray-700 to-gray-100",
+			title: "Video Lipsync",
+			text: "Lip sync any video to any audio"
+		},
+		{
+			Icon: Video,
+			color: "bg-gradient-to-br from-gray-700 to-gray-100",
+			title: "Video Lipsync",
+			text: "Lip sync any video to any audio"
+		},
 	]
   return (
 	<section className="flex flex-col min-h-full overflow-x-hidden">
@@ -51,13 +90,13 @@ export default function Main() {
 		<div className="min-h-full">
 			<h2 className="max-h-fit w-full text-left font-600 text-lg">Generate</h2>
 			<section className="grid grid-rows-2 grid-cols-4 gap-4 justify-evenly min-h-full w-full">
-			{generateComponentItems.map(({ Icon, title, text }, index) => (
-				<GenerateItemCard key={index} Icon={Icon} title={title} text={text} />
+			{generateComponentItems.map(({ Icon, color, title, text }, index) => (
+				<GenerateItemCard key={index} Icon={Icon} color={color} title={title} text={text} />
 			))}
 			</section>
 		</div>
 		
-		<div>
+		<div className="max-h-fit min-h-0 flex-shrink">
 			<h2 className="w-full text-left font-600 text-lg">Gallery</h2>
 		</div>
 	</section>
