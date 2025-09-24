@@ -65,7 +65,7 @@ export default function Main() {
 		},
 	]
   return (
-	<section className="flex flex-col min-h-full overflow-x-hidden">
+	<section className="flex flex-col h-full overflow-x-hidden">
 		<div className="h-full">
 			<Carousel className="w-full h-full block">
 				<CarouselContent className="min-h-full">
@@ -96,8 +96,8 @@ export default function Main() {
 			</section>
 		</div>
 		
-		<div className="max-h-fit min-h-0 flex-shrink">
-			<h2 className="w-full text-left font-600 text-lg">Gallery</h2>
+		<div className="min-h-0 flex-shrink">
+			asa
 		</div>
 	</section>
   );

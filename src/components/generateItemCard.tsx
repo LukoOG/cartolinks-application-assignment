@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button.tsx"
+import { Button } from "@/components/ui/button"
 import { Image } from  "lucide-react";
 export default function itemCard ({ Icon, color, title, text }) {
 	return (
