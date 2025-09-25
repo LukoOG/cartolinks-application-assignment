@@ -97,9 +97,9 @@ export default function Main() {
 					{/* Placeholder indicators */}
 					<div className="w-full col-start-1 span-1"></div>
 					<div className="col-start-2 span-1 items-center justify-center flex gap-2 min-w-full max-w-fit h-full">
-						{images.map(_, index) => (
+						{images.map((_, index) => (
 							<span key={index} className="h-2 w-2 rounded-full bg-gray-400"></span>
-						)}
+						))}
 					</div>
 
 					{/* Buttons */}
