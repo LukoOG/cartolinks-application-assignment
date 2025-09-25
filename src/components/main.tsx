@@ -7,6 +7,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import GenerateItemCard from "@/components/generateItemCard"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
@@ -74,19 +75,34 @@ export default function Main() {
 		},
 	]
 	
+	const [api, setApi] = useState<CarouselApi>()	
 	const [selectedIdx, setSelectedIdx] = useState<number>(0)
-	const images = ["/naruto.webp"]
+	const images = ["/naruto.webp", "/perfume.jpeg", "/naruto.jpeg"]
+	
+	useEffect(() => {
+		if (!api) {
+		  return
+		}
+		console.log(selectedIdx)
+	 
+		//setCount(api.scrollSnapList().length)
+		setSelectedIdx(api.selectedScrollSnap() + 1)
+	 
+		api.on("select", () => {
+		  setSelectedIdx(api.selectedScrollSnap() + 1)
+		})
+	}, [api])
   return (
 	<section className="flex flex-col h-full overflow-x-hidden">
 		<div className="h-full">
 		
-			<Carousel className="w-full h-full block">
+			<Carousel className="w-full h-full block" setApi={setApi}>
 				<CarouselContent className="min-h-full">
 				{images.map((url, index) => (
-				  <CarouselItem key={index} className="max-h-fit md:basis-1/2 lg:basis-1/3">
+				  <CarouselItem key={index} className="max-h-fit basis-7/12">
 					<div className="p-1">
 					  <div className="bg-card text-card-foreground rounded-xl shadow-sm overflow-hidden border max-h-fit w-full">
-						 <img className="w-full h-48 object-fit" src={url} /> 
+						 <img className="w-full h-90 object-fit" src={url} /> 
 					  </div>
 					</div>
 				  </CarouselItem>
@@ -99,7 +115,7 @@ export default function Main() {
 					<div className="w-full col-start-1 span-1"></div>
 					<div className="col-start-2 span-1 items-center justify-center flex gap-2 min-w-full max-w-fit h-full">
 						{images.map((_, index) => (
-							<span key={index} className="h-2 w-2 rounded-full bg-gray-400"></span>
+							<span key={index} onClick={()=>api?.scrollTo(index)} className={`${selectedIdx === index + 1 ? "bg-black" : "bg-gray-300"} h-2 w-2 rounded-full cursor-pointer`}></span>
 						))}
 					</div>
 
