@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -9,16 +8,23 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import GenerateItemCard from "@/components/generateItemCard"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { type LucideIcon, House, Video, WandSparkles, Folder, Image as LucideImage, Brush, PenTool, Headset, Bell, Sun } from "lucide-react";
+import GenerateItemCard from "@/components/generateItemCard";
+import { type LucideIcon, 
+	Video, 
+	WandSparkles, 
+	Image as LucideImage, 
+	Brush, 
+	PenTool, 
+	MicVocal,
+	PersonStanding,
+} from "lucide-react";
 
 import { useEffect, useState } from "react";
 
 export default function Main() {
 	
 	interface componentItems {
-		Icon: LucideIcon,
+		Icon: LucideIcon | null,
 		color: string,
 		title: string,
 		text: string,
@@ -27,51 +33,51 @@ export default function Main() {
 	const generateComponentItems: componentItems[] = [
 		{
 			Icon: LucideImage,
-			color: "bg-yellow-500",
+			color: "bg-gradient-to-br from-gray-700 to-gray-100",
 			title: "Image",
 			text: "Generate images with custom styles in flux and ideogram"
 		},
 		{
 			Icon: Video,
-			color: "bg-gradient-to-br from-gray-700 to-gray-100",
+			color: "bg-yellow-500",			
+			title: "Video",
+			text: "Generate videos with Helua, Pica, Luma and more"
+		},
+		{
+			Icon: Brush,
+			color: "bg-gradient-to-b from-cyan-600 to-cyan-100",
+			title: "Realtime",
+			text: "Realtime AI rendering on a canvas, instant feedback loops"
+		},
+		{
+			Icon: WandSparkles,
+			color: "bg-gradient-to-b from-black to-gray-500",
+			title: "Enhancer",
+			text: "Upscale and enhance images and videos up to 22k"
+		},
+		{
+			Icon: PenTool,
+			color: "bg-gradient-to-b from-gray-900 to-purple-700 via-purple-800",
+			title: "Edit",
+			text: "Add objects, change styles, or expand photos and generations"
+		},
+		{
+			Icon: MicVocal,
+			color: "bg-gradient-to-b from-teal-500 to-yellow-200 via-green-300",
 			title: "Video Lipsync",
 			text: "Lip sync any video to any audio"
 		},
 		{
-			Icon: Video,
-			color: "bg-gradient-to-br from-gray-700 to-gray-100",
-			title: "Video Lipsync",
+			Icon: PersonStanding,
+			color: "bg-black",
+			title: "Motion Transfer",
 			text: "Lip sync any video to any audio"
 		},
 		{
-			Icon: Video,
+			Icon: null,
 			color: "bg-gradient-to-br from-gray-700 to-gray-100",
-			title: "Video Lipsync",
-			text: "Lip sync any video to any audio"
-		},
-		{
-			Icon: Video,
-			color: "bg-gradient-to-br from-gray-700 to-gray-100",
-			title: "Video Lipsync",
-			text: "Lip sync any video to any audio"
-		},
-		{
-			Icon: Video,
-			color: "bg-gradient-to-br from-gray-700 to-gray-100",
-			title: "Video Lipsync",
-			text: "Lip sync any video to any audio"
-		},
-		{
-			Icon: Video,
-			color: "bg-gradient-to-br from-gray-700 to-gray-100",
-			title: "Video Lipsync",
-			text: "Lip sync any video to any audio"
-		},
-		{
-			Icon: Video,
-			color: "bg-gradient-to-br from-gray-700 to-gray-100",
-			title: "Video Lipsync",
-			text: "Lip sync any video to any audio"
+			title: "Train",
+			text: "Teach Krea to replicate your style, products or characters"
 		},
 	]
 	
@@ -91,7 +97,7 @@ export default function Main() {
 		api.on("select", () => {
 		  setSelectedIdx(api.selectedScrollSnap() + 1)
 		})
-	}, [api])
+	}, [selectedIdx, api])
   return (
 	<section className="flex flex-col h-full overflow-x-hidden">
 		<div className="h-full">
@@ -102,7 +108,7 @@ export default function Main() {
 				  <CarouselItem key={index} className="max-h-fit basis-7/12">
 					<div className="p-1">
 					  <div className="bg-card text-card-foreground rounded-xl shadow-sm overflow-hidden border max-h-fit w-full">
-						 <img className="w-full h-90 object-fit" src={url} /> 
+						 <Image alt={`Carousel image ${index}`} width={1200} height={800} className="w-full h-90 object-fit" src={url} /> 
 					  </div>
 					</div>
 				  </CarouselItem>
