@@ -1,5 +1,7 @@
-import Main from "@/components/main"
-import Header from "@/components/header"
+import Image from "next/image";
+
+import Main from "@/components/main";
+import Header from "@/components/header";
 
 export default function Home() {
   return (
@@ -17,7 +19,7 @@ export default function Home() {
 				
 				<div className="w-1/10 justify-between flex flex-row items-center">
 					<div className="max-w-10 max-h-10 overflow-hidden rounded-xl">
-						<img className="w-full object-fit" src="/krea-2.jpeg" />
+						<Image alt={"Krea AI logo"} width={800} height={500} className="w-full object-fit" src="/krea-2.jpeg" />
 					</div>
 					<p>KREA AI</p>
 				</div>
@@ -25,7 +27,7 @@ export default function Home() {
 				<div className="w-1/5 justify-evenly flex flex-row items-center">
 					<p>Curated by</p>
 					<div className="overflow-hidden max-h-10 max-w-10">
-						<img className="h-full w-full object-fit" src="/Mobbin.png" />
+						<Image alt={"Mobbin logo"} width={800} height={500} className="h-full w-full object-fit" src="/Mobbin.png" />
 					</div>
 					<p>Mobbin</p>
 				</div>				

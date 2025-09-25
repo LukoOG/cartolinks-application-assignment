@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { type LucideIcon, Image } from  "lucide-react";
+import { type LucideIcon } from  "lucide-react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
 
 interface itemCardProps {

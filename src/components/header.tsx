@@ -1,6 +1,5 @@
 "use client";
-import Image from "next/image";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import {
   Select,
   SelectContent,
@@ -11,9 +10,13 @@ import {
 } from "@/components/ui/select";
 import { useState } from "react";
 
-import { House, Video, WandSparkles, Folder, Image as LucideImage, Brush, PenTool, Headset, Bell, Sun } from "lucide-react";
+import { House, Video, WandSparkles, Folder, Image as LucideImage, Brush, PenTool, Headset, Bell, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function Header() {
+	const { theme, setTheme } = useTheme()
+	
+	
 	const icons = [House, Video, WandSparkles, Folder, LucideImage, Brush, PenTool]
 	const items3 = [
 	{
@@ -29,8 +32,9 @@ export default function Header() {
 		text: ""
 	}, 
 	{
-		Icon: Sun,
-		text:""
+		Icon: theme === "dark" ? Sun : Moon,
+		text:"",
+		toggle: true,
 	}
 	]
 	const [selectedIndex, setIndex] = useState<number>(0)
@@ -66,18 +70,19 @@ export default function Header() {
 				<div className="justify-evenly h-full items-center flex flex-row">
 					{icons.map((Icon, index) =>(
 						<div key={index} onClick={()=>setIndex(index)} className={`h-10 w-12 rounded-xl cursor-pointer transition-ease duration-200 ${selectedIndex === index ? "bg-background shadow-md" : ""} `}>
-							<Icon className="h-full m-auto" size={14} color="black" />
+							<Icon className="h-full m-auto text-foreground" size={14} />
 						</div>
 					))}
 				</div>
 			</div>
 			
 			<div className="grid [grid-template-columns:repeat(5,auto)] items-center gap-x-2 text-foreground font-400 text-sm justify-evenly">
-				{ items3.map( ( { Icon, text }, index) => (
+				{ items3.map( ( { Icon, text, toggle }, index) => (
 					<div key={index} className="max-w-fit">
-						<div className="bg-muted rounded-md p-2">
+						<div className="cursor-pointer hover:bg-card-foreground/30 transition-all duration-200 bg-muted rounded-md p-2"
+						onClick={()=>{ if(toggle){ setTheme(theme === "dark" ? "light" : "dark") }}}>
 							<div className="flex flex-row items-center my-auto h-full justify-between gap-1">
-								<Icon size={14} color="black" />
+								<Icon size={14} className="text-foreground" />
 								{ text ? <p>{text}</p> : null}
 							</div>
 						</div>
