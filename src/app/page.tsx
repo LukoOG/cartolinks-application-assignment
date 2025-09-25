@@ -8,7 +8,7 @@ export default function Home() {
 			<header className="max-h-fit mb-12">
 				<Header />
 			</header>
-			<main className="flex-grow">
+			<main className="grow">
 				<Main />
 			</main>
 		</div>
