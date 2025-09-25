@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -9,14 +10,14 @@ import {
 } from "@/components/ui/carousel";
 import GenerateItemCard from "@/components/generateItemCard"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { type Icon as IconType, House, Video, WandSparkles, Folder, Image as LucideImage, Brush, PenTool, Headset, Bell, Sun } from "lucide-react";
+import { type LucideIcon, House, Video, WandSparkles, Folder, Image as LucideImage, Brush, PenTool, Headset, Bell, Sun } from "lucide-react";
 
-
+import { useEffect, useState } from "react";
 
 export default function Main() {
 	
 	interface componentItems {
-		Icon: IconType,
+		Icon: LucideIcon,
 		color: string,
 		title: string,
 		text: string,

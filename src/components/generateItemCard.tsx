@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button"
-import { type Icon as IconType, Image } from  "lucide-react";
+import { type LucideIcon, Image } from  "lucide-react";
 
 interface itemCardProps {
-	Icon: IconType,
+	Icon: LucideIcon,
 	color: string,
 	title: string,
 	text: string,
