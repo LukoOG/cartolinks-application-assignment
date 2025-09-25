@@ -121,14 +121,14 @@ export default function Main() {
 					<div className="w-full col-start-1 span-1"></div>
 					<div className="col-start-2 span-1 items-center justify-center flex gap-2 min-w-full max-w-fit h-full">
 						{images.map((_, index) => (
-							<span key={index} onClick={()=>api?.scrollTo(index)} className={`${selectedIdx === index + 1 ? "bg-black" : "bg-gray-300"} h-2 w-2 rounded-full cursor-pointer`}></span>
+							<span key={index} onClick={()=>api?.scrollTo(index)} className={`${selectedIdx === index + 1 ? "bg-indicator-foreground" : "bg-indicator" } h-2 w-2 rounded-full cursor-pointer`}></span>
 						))}
 					</div>
 
 					{/* Buttons */}
 					<div className="flex items-center justify-center gap-1">
-						<CarouselPrevious className="static translate-y-0 left-0 right-0 relative m-0" />
-						<CarouselNext className="static translate-y-0 left-0 right-0 relative m-0" />
+						<CarouselPrevious className="static cursor-pointer translate-y-0 left-0 right-0 relative m-0" />
+						<CarouselNext className="static cursor-pointer translate-y-0 left-0 right-0 relative m-0" />
 					</div>
 				</div>
 			</Carousel>
