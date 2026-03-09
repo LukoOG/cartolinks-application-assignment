@@ -40,9 +40,9 @@ export default function Header() {
 	const [selectedIndex, setIndex] = useState<number>(0)
 
   return (
-		<section className="min-h-8 max-h-fit items-center grid 6 gap-x-3 grid-cols-[auto_1fr_auto]">
+		<section className="flex flex-col sm:flex-row items-center justify-between sm:grid gap-y-4 sm:gap-x-3 sm:grid-cols-[auto_1fr_auto]">
 		
-			<div className="flex flex-row w-1/3 justify-between gap-x-4">
+			<div className="flex flex-col sm:flex-row w-full sm:w-1/3 items-center sm:items-start justify-between gap-2 sm:gap-4">
 				<Avatar>
 					<AvatarImage className="aspect-square h-full w-full" src="/krea.png" />
 				</Avatar>
@@ -58,7 +58,7 @@ export default function Header() {
 								<SelectItem value="name">benevolent123@gmail.com</SelectItem>
 							</SelectGroup>
 						</SelectContent>
-						<SelectTrigger className="max-w-[280px] outline-none border-none">
+						<SelectTrigger className="max-w-70 outline-none border-none">
 							<SelectValue placeholder="here" />
 						</SelectTrigger>
 					</Select>
@@ -66,7 +66,7 @@ export default function Header() {
 				</div>
 			</div>
 			
-			<div className="rounded-lg max-h-fit justify-self-center bg-muted p-1">
+			<div className="rounded-lg sm:w-auto max-h-fit justify-self-center bg-muted p-1">
 				<div className="justify-evenly h-full items-center flex flex-row">
 					{icons.map((Icon, index) =>(
 						<div key={index} onClick={()=>setIndex(index)} className={`h-10 w-12 rounded-xl cursor-pointer transition-ease duration-200 ${selectedIndex === index ? "bg-background shadow-md" : ""} `}>
@@ -76,7 +76,7 @@ export default function Header() {
 				</div>
 			</div>
 			
-			<div className="grid [grid-template-columns:repeat(5,auto)] items-center gap-x-2 text-foreground font-400 text-sm justify-evenly">
+			<div className="grid grid-cols-[repeat(5,auto)] items-center gap-x-2 text-foreground font-400 text-sm justify-evenly">
 				{ items3.map( ( { Icon, text, toggle }, index) => (
 					<div key={index} className="max-w-fit">
 						<div className="cursor-pointer hover:bg-card-foreground/30 transition-all duration-200 bg-muted rounded-md p-2"
