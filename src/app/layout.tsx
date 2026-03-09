@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Cartolinks assignment",
   description: "frontend developer application",
+  icons: {
+    icon: '/krea.png'
+  }
 };
 
 export default function RootLayout({
