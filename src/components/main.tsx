@@ -83,7 +83,7 @@ export default function Main() {
 
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIdx, setSelectedIdx] = useState<number>(0);
-  const images = ["/naruto.webp", "/perfume.jpeg"];
+  const images = ["/naruto.webp", "/perfume.webp", "/AI.webp"];
 
   useEffect(() => {
     if (!api) {
@@ -139,8 +139,8 @@ export default function Main() {
 
             {/* Buttons */}
             <div className="flex items-center justify-center gap-1">
-              <CarouselPrevious className="static cursor-pointer translate-y-0 left-0 right-0 relative m-0" />
-              <CarouselNext className="static cursor-pointer translate-y-0 left-0 right-0 relative m-0" />
+              <CarouselPrevious className="cursor-pointer translate-y-0 left-0 right-0 relative m-0" />
+              <CarouselNext className="cursor-pointer translate-y-0 left-0 right-0 relative m-0" />
             </div>
           </div>
         </Carousel>
